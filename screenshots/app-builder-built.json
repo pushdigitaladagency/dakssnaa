@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Sree Dakssnaa Aerospace & Defence | Engineering Precision",
+      "hasCanvas": false,
+      "bodyTextLen": 10278,
+      "bodyTextHash": "945bf159b99d9ca34ce024f0f8da7527f9551c72a3355612799434d2182f647a",
+      "bodyTextPrefix": "Skip to content SREE DAKSSNAA AEROSPACE & DEFENCE ABOUT CAPABILI",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Sree Dakssnaa Aerospace & Defence | Engineering Precision",
+      "hasCanvas": false,
+      "bodyTextLen": 10183,
+      "bodyTextHash": "30e840b7e487722a6fc8aeaf8b580a598c7a749ab478871e217a560fce1d6638",
+      "bodyTextPrefix": "Skip to content SREE DAKSSNAA AEROSPACE / DEFENCE / ADVANCED MAN",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
