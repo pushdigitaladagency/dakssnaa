@@ -4,7 +4,7 @@ import { i as Menu, n as TriangleAlert, r as Phone, s as ArrowUpRight, t as X } 
 import { a as union, i as string, n as number, r as object, t as literal } from "../_libs/zod.mjs";
 import { t as clsx } from "../_libs/clsx.mjs";
 import { t as twMerge } from "../_libs/tailwind-merge.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-D86ljitk.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-BM_i0b_u.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var __defProp = Object.defineProperty;
@@ -415,7 +415,7 @@ var capabilities = [
 			"Double-column milling and machining"
 		],
 		icon: "cog",
-		image: "/images/hero/cnc-machining.jpg"
+		image: "/images/hd/cnc.jpg"
 	},
 	{
 		id: "composites",
@@ -431,7 +431,7 @@ var capabilities = [
 		],
 		processes: ["FRP manufacturing (Unit-7 expansion)", "Advanced composite applications under development"],
 		icon: "layers",
-		image: "/images/hero/carbon-fiber.jpg"
+		image: "/images/hd/composites.jpg"
 	},
 	{
 		id: "assembly",
@@ -450,7 +450,7 @@ var capabilities = [
 			"System fit-out as specified by the programme"
 		],
 		icon: "combine",
-		image: "/images/projects/amca-cockpit-int.jpg"
+		image: "/images/hd/cockpit-int.jpg"
 	},
 	{
 		id: "coatings",
@@ -461,7 +461,7 @@ var capabilities = [
 		applications: ["Stealth paint / coating (HAL)", "Protective and finish coatings on fabricated assemblies"],
 		processes: ["Surface coating as specified by the programme"],
 		icon: "paint",
-		image: "/images/projects/stealth-paint.jpg"
+		image: "/images/hd/composites.jpg"
 	},
 	{
 		id: "fabrication",
@@ -481,7 +481,7 @@ var capabilities = [
 			"Press-brake forming (capability enhancement)"
 		],
 		icon: "flame",
-		image: "/images/hero/laser-facility.jpg"
+		image: "/images/hd/laser.jpg"
 	},
 	{
 		id: "quality-rd",
@@ -500,7 +500,7 @@ var capabilities = [
 			"Technology development"
 		],
 		icon: "ruler",
-		image: "/images/projects/aptt-panel.jpg"
+		image: "/images/hd/intake.jpg"
 	},
 	{
 		id: "advanced-manufacturing",
@@ -519,7 +519,7 @@ var capabilities = [
 			"Metal additive manufacturing (capability enhancement)"
 		],
 		icon: "circuit",
-		image: "/images/facilities/additive.jpg"
+		image: "/images/hd/gantry.jpg"
 	},
 	{
 		id: "project-management",
@@ -534,62 +534,64 @@ var capabilities = [
 		],
 		processes: ["Programme coordination from engineering to execution", "Multi-process manufacturing packages"],
 		icon: "clipboard",
-		image: "/images/projects/jaguar-cockpit.jpg"
+		image: "/images/hd/cockpit-ext.jpg"
 	}
 ];
 var partners = [{
 	name: "RUBTEC, Denmark",
 	focus: "Aluminium wheels",
-	region: "Denmark"
+	region: "Denmark",
+	image: "/images/customers/rubtec.png"
 }, {
 	name: "VCI Composites, Canada",
 	focus: "Armour-grade composite panels",
-	region: "Canada"
+	region: "Canada",
+	image: "/images/customers/vci.png"
 }];
 var ecosystem = [
 	{
 		name: "HAL",
-		image: "/images/customers/hal.jpg",
+		image: "/images/customers/hal.png",
 		alt: "HAL — Hindustan Aeronautics Limited"
 	},
 	{
 		name: "ADA",
-		image: "/images/customers/ada.jpg",
+		image: "/images/customers/ada.png",
 		alt: "ADA — Aeronautical Development Agency"
 	},
 	{
+		name: "DRDO",
+		image: "/images/customers/drdo.png",
+		alt: "DRDO — Defence Research and Development Organisation"
+	},
+	{
 		name: "AVANI",
-		image: "/images/customers/avani.jpg",
+		image: "/images/customers/avani.png",
 		alt: "Armoured Vehicles (AVANI)"
 	},
 	{
+		name: "BEML",
+		image: "/images/customers/beml.svg",
+		alt: "BEML"
+	},
+	{
 		name: "Bombardier",
-		image: "/images/customers/bombardier.jpg",
+		image: "/images/customers/bombardier.png",
 		alt: "Bombardier"
 	},
 	{
 		name: "Alstom",
-		image: "/images/customers/alstom.jpg",
+		image: "/images/customers/alstom.svg",
 		alt: "Alstom"
 	},
 	{
-		name: "BEML",
-		image: "/images/customers/beml.jpg",
-		alt: "BEML"
-	},
-	{
-		name: "DRDO",
-		image: "/images/customers/drdo.jpg",
-		alt: "DRDO — Defence Research and Development Organisation"
-	},
-	{
 		name: "RITES",
-		image: "/images/customers/rites.jpg",
+		image: "/images/customers/rites.png",
 		alt: "RITES"
 	},
 	{
 		name: "Indian Railways",
-		image: "/images/customers/indian-railways.jpg",
+		image: "/images/customers/indian-railways.png",
 		alt: "Indian Railways"
 	}
 ];
@@ -637,10 +639,13 @@ function Logo({ onDark = false, compact = false, full = false }) {
 		href: "/#top",
 		className: "inline-block",
 		"aria-label": "Sree Dakssnaa — home",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-			src: "/images/brand/logo.png",
-			alt: "Sree Dakssnaa Aerospace and Defence India Pvt. Ltd.",
-			className: cn("h-auto w-[180px] md:w-[210px]", onDark && "rounded-sm bg-paper p-2")
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+			className: cn("inline-block", onDark && "bg-paper px-5 py-4"),
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+				src: "/images/brand/logo.png",
+				alt: "Sree Dakssnaa Aerospace and Defence India Pvt. Ltd.",
+				className: "h-auto w-[168px] md:w-[196px]"
+			})
 		})
 	});
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(HashLink, {
@@ -650,35 +655,36 @@ function Logo({ onDark = false, compact = false, full = false }) {
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 			src: "/images/brand/mark.png",
 			alt: "",
-			className: "h-8 w-auto shrink-0 sm:h-10 md:h-11"
+			className: cn("h-9 w-auto shrink-0 sm:h-10 md:h-11", onDark && "rounded-lg bg-paper p-1")
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 			className: "hidden min-w-0 flex-col leading-none min-[360px]:flex",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-				className: cn("font-display text-[15px] font-semibold tracking-[0.08em] uppercase", onDark ? "text-navy-fg" : "text-navy"),
+				className: cn("font-sans text-[13px] font-semibold tracking-[0.08em] uppercase", onDark ? "text-navy-fg" : "text-navy"),
 				children: "Sree Dakssnaa"
 			}), !compact ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-				className: cn("mt-1 hidden font-mono text-[0.5625rem] tracking-[0.18em] uppercase sm:block", onDark ? "text-navy-subtle" : "text-ink-subtle"),
+				className: cn("mt-1 hidden font-sans text-[0.5625rem] font-medium tracking-[0.16em] uppercase sm:block", onDark ? "text-navy-subtle" : "text-ink-subtle"),
 				children: "Aerospace & Defence"
 			}) : null]
 		})]
 	});
 }
 var btnClass = {
-	amber: "bg-signal text-signal-fg hover:bg-signal-2",
+	amber: "bg-navy text-navy-fg hover:bg-navy-2",
 	navy: "bg-navy text-navy-fg hover:bg-navy-2",
+	paper: "bg-paper text-navy hover:bg-paper-2",
 	outline: "bg-transparent text-navy shadow-[inset_0_0_0_1px] shadow-navy/25 hover:shadow-navy/50",
 	outlineLight: "bg-transparent text-navy-fg shadow-[inset_0_0_0_1px] shadow-navy-fg/30 hover:shadow-navy-fg/70",
-	ghost: "bg-transparent text-current hover:text-signal"
+	ghost: "bg-transparent text-current hover:text-navy"
 };
 function Btn({ variant = "amber", className, children, ...props }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-		className: cn("cta-label inline-flex h-11 items-center justify-center gap-2 px-5 transition-colors duration-200 active:scale-[0.96]", btnClass[variant], className),
+		className: cn("cta-label inline-flex h-11 items-center justify-center gap-2 rounded-xl px-5 transition-colors duration-200 active:scale-[0.96]", btnClass[variant], className),
 		...props,
 		children
 	});
 }
 function BtnLink({ to, href, variant = "amber", className, children, download, target, rel }) {
-	const cls = cn("cta-label inline-flex h-11 items-center justify-center gap-2 px-5 transition-colors duration-200 active:scale-[0.96]", btnClass[variant], className);
+	const cls = cn("cta-label inline-flex h-11 items-center justify-center gap-2 rounded-xl px-5 transition-colors duration-200 active:scale-[0.96]", btnClass[variant], className);
 	if (to) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
 		to,
 		className: cls,
@@ -698,32 +704,59 @@ function BtnLink({ to, href, variant = "amber", className, children, download, t
 		children
 	});
 }
-function Reveal({ children, className, delay = 0 }) {
+function Reveal({ children, className, delay = 0, from = "up", once = false }) {
 	const ref = (0, import_react.useRef)(null);
 	(0, import_react.useEffect)(() => {
 		const el = ref.current;
 		if (!el) return;
-		const show = () => el.classList.add("is-in");
 		const io = new IntersectionObserver(([entry]) => {
 			if (entry.isIntersecting) {
-				show();
-				io.disconnect();
-			}
+				el.classList.add("is-in");
+				if (once) io.disconnect();
+			} else if (!once) el.classList.remove("is-in");
 		}, {
-			threshold: .12,
-			rootMargin: "0px 0px -6% 0px"
+			threshold: .16,
+			rootMargin: "0px 0px -10% 0px"
 		});
 		io.observe(el);
-		const fallback = window.setTimeout(show, 1800);
-		return () => {
-			io.disconnect();
-			window.clearTimeout(fallback);
-		};
-	}, []);
+		return () => io.disconnect();
+	}, [once]);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		ref,
-		className: cn("reveal", className),
+		className: cn("reveal", from === "left" && "reveal-left", from === "right" && "reveal-right", from === "scale" && "reveal-scale", className),
 		style: { transitionDelay: `${delay}ms` },
+		children
+	});
+}
+function ParallaxMedia({ children, className, strength = 32 }) {
+	const ref = (0, import_react.useRef)(null);
+	(0, import_react.useEffect)(() => {
+		const el = ref.current;
+		if (!el) return;
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+		let raf = 0;
+		const update = () => {
+			const r = el.getBoundingClientRect();
+			const vh = window.innerHeight || 1;
+			const p = (r.top + r.height / 2 - vh / 2) / vh;
+			el.style.setProperty("--para", `${(p * strength).toFixed(1)}px`);
+		};
+		const onScroll = () => {
+			cancelAnimationFrame(raf);
+			raf = requestAnimationFrame(update);
+		};
+		update();
+		window.addEventListener("scroll", onScroll, { passive: true });
+		window.addEventListener("resize", onScroll);
+		return () => {
+			cancelAnimationFrame(raf);
+			window.removeEventListener("scroll", onScroll);
+			window.removeEventListener("resize", onScroll);
+		};
+	}, [strength]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		ref,
+		className: cn("parallax-media overflow-hidden", className),
 		children
 	});
 }
@@ -739,15 +772,15 @@ function Section({ children, className, innerClassName, id, dark, wide }) {
 }
 function Kicker({ children, className, onDark }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-		className: cn("kicker", onDark ? "text-signal" : "text-ink-subtle", className),
+		className: cn("kicker", onDark ? "text-navy-subtle" : "text-ink-subtle", className),
 		children
 	});
 }
 function StatusBadge({ status }) {
 	const isOp = status === "operational";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-		className: cn("kicker inline-flex items-center gap-2 px-2 py-1", isOp ? "bg-navy text-navy-fg" : "bg-signal text-signal-fg"),
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: cn("size-1.5 rounded-full", isOp ? "bg-signal" : "bg-paper") }), isOp ? "In operation" : "Capability enhancement"]
+		className: cn("kicker inline-flex items-center gap-2 rounded-full px-2.5 py-1", isOp ? "bg-navy text-navy-fg" : "bg-paper text-navy"),
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: cn("size-1.5 rounded-full", isOp ? "bg-paper" : "bg-navy") }), isOp ? "In operation" : "Capability enhancement"]
 	});
 }
 function PageHero({ kicker, title, copy, image, imageAlt, imageFit = "cover" }) {
@@ -784,18 +817,18 @@ function PageHero({ kicker, title, copy, image, imageAlt, imageFit = "cover" }) 
 }
 function SiteShell() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "flex min-h-svh flex-col bg-paper text-ink",
+		className: "flex min-h-svh flex-col overflow-x-clip bg-paper text-ink",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
 				href: "#main",
-				className: "sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-overlay focus:bg-signal focus:px-4 focus:py-2 focus:text-signal-fg",
+				className: "sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-overlay focus:bg-navy focus:px-4 focus:py-2 focus:text-navy-fg",
 				children: "Skip to content"
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProgressBar, {}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Header, {}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
 				id: "main",
-				className: "flex-1 pb-16 nav:pb-0",
+				className: "flex-1 pb-[calc(4.25rem+env(safe-area-inset-bottom))] nav:pb-0",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {})
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Footer, {}),
@@ -817,7 +850,7 @@ function ProgressBar() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "pointer-events-none fixed inset-x-0 top-0 z-[60] h-0.5 bg-transparent",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "h-full bg-signal",
+			className: "h-full bg-navy",
 			style: { width: `${p * 100}%` }
 		})
 	});
@@ -826,7 +859,9 @@ function Header() {
 	const pathname = useRouterState({ select: (s) => s.location.pathname });
 	const [open, setOpen] = (0, import_react.useState)(false);
 	const [scrolled, setScrolled] = (0, import_react.useState)(false);
+	const [hidden, setHidden] = (0, import_react.useState)(false);
 	const [active, setActive] = (0, import_react.useState)("#about");
+	const lastY = (0, import_react.useRef)(0);
 	const isHome = pathname === "/";
 	(0, import_react.useEffect)(() => {
 		setOpen(false);
@@ -838,11 +873,20 @@ function Header() {
 		};
 	}, [open]);
 	(0, import_react.useEffect)(() => {
-		const onScroll = () => setScrolled(window.scrollY > 12);
+		const onScroll = () => {
+			const y = window.scrollY;
+			setScrolled(y > 12);
+			const goingDown = y > lastY.current + 6;
+			const goingUp = y < lastY.current - 6;
+			if (open) setHidden(false);
+			else if (goingDown && y > 96) setHidden(true);
+			else if (goingUp) setHidden(false);
+			lastY.current = y;
+		};
 		onScroll();
 		window.addEventListener("scroll", onScroll, { passive: true });
 		return () => window.removeEventListener("scroll", onScroll);
-	}, []);
+	}, [open]);
 	(0, import_react.useEffect)(() => {
 		if (!isHome) return;
 		const els = nav.map((n) => n.href.slice(1)).map((id) => document.getElementById(id)).filter((el) => Boolean(el));
@@ -861,12 +905,13 @@ function Header() {
 		els.forEach((el) => io.observe(el));
 		return () => io.disconnect();
 	}, [isHome]);
+	const overHero = isHome && !scrolled;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("header", {
-		className: cn("fixed inset-x-0 top-0 z-nav border-b transition-colors duration-300", scrolled || !isHome ? "border-line bg-paper/95 text-ink backdrop-blur-md" : "border-line bg-paper/90 text-ink backdrop-blur-sm"),
+		className: cn("fixed inset-x-0 top-0 z-nav border-b transition-[transform,background-color,border-color,color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]", hidden && !open ? "-translate-y-full" : "translate-y-0", overHero ? "border-transparent bg-navy/30 text-navy-fg backdrop-blur-md" : "border-line bg-paper/95 text-ink backdrop-blur-md"),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-6 px-5 md:h-[4.5rem] md:px-8",
 			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Logo, {}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Logo, { onDark: overHero }),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
 					className: "hidden items-center gap-6 nav:flex",
 					"aria-label": "Primary",
@@ -874,8 +919,8 @@ function Header() {
 						const current = isHome && active === item.href;
 						return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(HashLink, {
 							href: `/${item.href}`,
-							className: cn("relative whitespace-nowrap py-2 font-display text-[13px] font-semibold tracking-[0.14em] uppercase transition-colors", current ? "text-signal" : "text-ink-muted hover:text-navy"),
-							children: [item.label, current ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "absolute inset-x-0 -bottom-0.5 h-px bg-signal" }) : null]
+							className: cn("relative whitespace-nowrap py-2 font-sans text-[12px] font-semibold tracking-[0.14em] uppercase transition-colors", overHero ? current ? "text-navy-fg" : "text-navy-fg/70 hover:text-navy-fg" : current ? "text-navy" : "text-ink-muted hover:text-navy"),
+							children: [item.label, current ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: cn("absolute inset-x-0 -bottom-0.5 h-px", overHero ? "bg-navy-fg" : "bg-navy") }) : null]
 						}, item.href);
 					})
 				}),
@@ -883,12 +928,12 @@ function Header() {
 					className: "flex items-center gap-3",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BtnLink, {
 						href: "/#contact",
-						variant: "amber",
+						variant: overHero ? "paper" : "navy",
 						className: "hidden h-9 px-4 sm:inline-flex",
 						children: "Enquire"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 						type: "button",
-						className: "inline-flex size-11 items-center justify-center text-navy nav:hidden",
+						className: cn("inline-flex size-11 items-center justify-center nav:hidden", overHero ? "text-navy-fg" : "text-navy"),
 						"aria-expanded": open,
 						"aria-controls": "mobile-nav",
 						"aria-label": open ? "Close menu" : "Open menu",
@@ -917,19 +962,19 @@ function Header() {
 			children: [
 				nav.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HashLink, {
 					href: `/${item.href}`,
-					className: "font-display text-4xl tracking-tight text-navy",
+					className: "font-sans text-3xl font-semibold tracking-tight text-navy",
 					onClick: () => setOpen(false),
 					children: item.label
 				}, item.href)),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(HashLink, {
 					href: "/#contact",
-					className: "mt-8 inline-flex w-fit items-center gap-2 bg-signal px-5 py-3 font-display text-xs font-semibold tracking-[0.14em] text-signal-fg uppercase",
+					className: "mt-8 inline-flex w-fit items-center gap-2 bg-navy px-5 py-3 font-sans text-xs font-semibold tracking-[0.14em] text-navy-fg uppercase",
 					onClick: () => setOpen(false),
 					children: ["Enquire with us ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowUpRight, { className: "size-4" })]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
 					href: `tel:${company.phoneTel}`,
-					className: "mt-6 font-mono text-sm text-ink-muted",
+					className: "mt-6 font-sans text-sm text-ink-muted",
 					children: company.phoneDisplay
 				})
 			]
@@ -940,7 +985,7 @@ function Footer() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("footer", {
 		className: "bg-navy text-navy-fg",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "mx-auto grid max-w-[1160px] gap-12 px-5 py-16 md:grid-cols-12 md:px-8",
+			className: "mx-auto grid max-w-[1160px] gap-8 px-5 py-10 md:grid-cols-12 md:gap-12 md:px-8 md:py-16",
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "md:col-span-5",
@@ -954,7 +999,7 @@ function Footer() {
 							children: "Engineering, manufacturing and integration solutions for the Aerospace & Defence sectors — built on precision, reliability and manufacturing expertise."
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-							className: "mt-4 font-mono text-[11px] tracking-[0.16em] text-navy-subtle uppercase",
+							className: "mt-4 font-sans text-[11px] tracking-[0.16em] text-navy-subtle uppercase",
 							children: ["Established ", company.established]
 						})
 					]
@@ -962,7 +1007,7 @@ function Footer() {
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "md:col-span-2",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "kicker text-signal",
+						className: "kicker text-navy-subtle",
 						children: "On this page"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
 						className: "mt-4 space-y-2 text-sm text-navy-muted",
@@ -976,7 +1021,7 @@ function Footer() {
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "md:col-span-2",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "kicker text-signal",
+						className: "kicker text-navy-subtle",
 						children: "Capabilities"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
 						className: "mt-4 space-y-2 text-sm text-navy-muted",
@@ -1008,7 +1053,7 @@ function Footer() {
 					className: "md:col-span-3",
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "kicker text-signal",
+							className: "kicker text-navy-subtle",
 							children: "Contact"
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("address", {
@@ -1020,17 +1065,17 @@ function Footer() {
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
 							href: `tel:${company.phoneTel}`,
-							className: "mt-3 block text-sm text-navy-fg hover:text-signal",
+							className: "mt-3 block text-sm text-navy-fg hover:text-paper",
 							children: company.phoneDisplay
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
 							href: `mailto:${company.email}`,
-							className: "mt-1 block text-sm text-navy-fg hover:text-signal",
+							className: "mt-1 block text-sm text-navy-fg hover:text-paper",
 							children: company.email
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 							href: company.profilePdf,
-							className: "mt-4 inline-flex items-center gap-1 text-xs tracking-[0.12em] text-signal uppercase",
+							className: "mt-4 inline-flex items-center gap-1 text-xs tracking-[0.12em] text-navy-fg uppercase",
 							download: true,
 							children: ["Download company profile ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowUpRight, { className: "size-3.5" })]
 						})
@@ -1066,16 +1111,16 @@ function Footer() {
 function MobileCta() {
 	if (useRouterState({ select: (s) => s.location.pathname }) !== "/") return null;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/95 text-ink backdrop-blur-md nav:hidden",
+		className: "fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/95 text-ink backdrop-blur-md nav:hidden pb-[env(safe-area-inset-bottom)]",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "grid grid-cols-2",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 				href: `tel:${company.phoneTel}`,
-				className: "inline-flex h-14 items-center justify-center gap-2 font-display text-xs tracking-[0.14em] uppercase",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-4 text-signal" }), " Call us"]
+				className: "inline-flex h-14 items-center justify-center gap-2 font-sans text-xs font-semibold tracking-[0.14em] uppercase",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-4 text-navy" }), " Call us"]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HashLink, {
 				href: "#contact",
-				className: "inline-flex h-14 items-center justify-center bg-signal font-display text-xs tracking-[0.14em] text-signal-fg uppercase",
+				className: "inline-flex h-14 items-center justify-center bg-navy font-sans text-xs font-semibold tracking-[0.14em] text-navy-fg uppercase",
 				children: "Enquire"
 			})]
 		})
@@ -1086,7 +1131,7 @@ function NotFound() {
 		className: "flex min-h-[70vh] flex-col items-center justify-center bg-paper px-6 pt-28 text-center text-ink",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				className: "kicker text-signal",
+				className: "kicker text-navy",
 				children: "404"
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
@@ -1112,7 +1157,7 @@ function NotFound() {
 		]
 	});
 }
-var styles_default = "/assets/styles-BGXRqxCc.css";
+var styles_default = "/assets/styles-BNDMQh2f.css";
 var APP_NAME = "Sree Dakssnaa Aerospace & Defence";
 var DESCRIPTION = "Sree Dakssnaa Aerospace & Defence India Pvt Ltd delivers aerospace and defence engineering and manufacturing capabilities including machining, composites, fabrication, assembly, coatings and advanced manufacturing.";
 var Route$12 = createRootRoute({
@@ -1121,7 +1166,7 @@ var Route$12 = createRootRoute({
 			{ charSet: "utf-8" },
 			{
 				name: "viewport",
-				content: "width=device-width, initial-scale=1"
+				content: "width=device-width, initial-scale=1, viewport-fit=cover"
 			},
 			{ title: APP_NAME },
 			{
@@ -1166,7 +1211,7 @@ var Route$12 = createRootRoute({
 			},
 			{
 				rel: "stylesheet",
-				href: "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+				href: "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap"
 			}
 		]
 	}),
@@ -1211,7 +1256,7 @@ function RootDocument() {
 		})]
 	});
 }
-var $$splitComponentImporter$2 = () => import("./routes-DkvHFdaC.mjs");
+var $$splitComponentImporter$2 = () => import("./routes-28n_vwqk.mjs");
 var Route$11 = createFileRoute("/")({
 	head: () => ({ meta: [{ title: "Sree Dakssnaa Aerospace & Defence | Engineering Precision" }, {
 		name: "description",
@@ -1255,7 +1300,7 @@ var Route$5 = createFileRoute("/partnerships")({ beforeLoad: () => {
 		hash: "partners"
 	});
 } });
-var $$splitComponentImporter$1 = () => import("./privacy-zUoEhsnb.mjs");
+var $$splitComponentImporter$1 = () => import("./privacy-DJiqUedB.mjs");
 var Route$4 = createFileRoute("/privacy")({
 	head: () => ({ meta: [{ title: "Privacy Policy | Sree Dakssnaa Aerospace & Defence" }, {
 		name: "description",
@@ -1275,7 +1320,7 @@ var Route$2 = createFileRoute("/quality-rd")({ beforeLoad: () => {
 		hash: "capabilities"
 	});
 } });
-var $$splitComponentImporter = () => import("./terms-DvqWzAxy.mjs");
+var $$splitComponentImporter = () => import("./terms-CyS-8vSc.mjs");
 var Route$1 = createFileRoute("/terms")({
 	head: () => ({ meta: [{ title: "Terms | Sree Dakssnaa Aerospace & Defence" }, {
 		name: "description",
@@ -1373,4 +1418,4 @@ function getRouter() {
 	});
 }
 //#endregion
-export { PageHero as a, StatusBadge as c, company as d, ecosystem as f, cn as g, requirementTypes as h, Kicker as i, HashLink as l, partners as m, Btn as n, Reveal as o, leadership as p, BtnLink as r, Section as s, router_exports as t, capabilities as u };
+export { cn as _, PageHero as a, Section as c, capabilities as d, company as f, requirementTypes as g, partners as h, Kicker as i, StatusBadge as l, leadership as m, Btn as n, ParallaxMedia as o, ecosystem as p, BtnLink as r, Reveal as s, router_exports as t, HashLink as u };

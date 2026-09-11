@@ -51,6 +51,27 @@ export function CadExplode() {
 
     video.pause();
 
+    // In production the video streams over the network, so a seek to an
+    // unbuffered point takes real time; overwriting `currentTime` again
+    // before it resolves cancels it mid-flight and the frame never
+    // advances (invisible locally, where seeks resolve instantly off disk).
+    // Track in-flight seeks and only ever chase the latest scroll target.
+    let seeking = false;
+    let pendingTime: number | null = null;
+    const onSeeking = () => {
+      seeking = true;
+    };
+    const onSeeked = () => {
+      seeking = false;
+      if (pendingTime !== null) {
+        const t = pendingTime;
+        pendingTime = null;
+        video.currentTime = t;
+      }
+    };
+    video.addEventListener("seeking", onSeeking);
+    video.addEventListener("seeked", onSeeked);
+
     const apply = () => {
       const vh = window.innerHeight;
       const range = Math.max(1, pin.offsetHeight - vh);
@@ -77,7 +98,10 @@ export function CadExplode() {
       const d = video.duration;
       if (d && Number.isFinite(d)) {
         const t = p * Math.max(0, d - 0.04);
-        if (Math.abs(video.currentTime - t) > 1 / 48) video.currentTime = t;
+        if (Math.abs(video.currentTime - t) > 1 / 48) {
+          if (seeking) pendingTime = t;
+          else video.currentTime = t;
+        }
       }
       if (barRef.current) barRef.current.style.width = `${(p * 100).toFixed(1)}%`;
       if (labelRef.current) {
@@ -99,6 +123,8 @@ export function CadExplode() {
     return () => {
       cancelAnimationFrame(raf);
       video.removeEventListener("loadedmetadata", apply);
+      video.removeEventListener("seeking", onSeeking);
+      video.removeEventListener("seeked", onSeeked);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };

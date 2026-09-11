@@ -1,6 +1,6 @@
 import { b as require_jsx_runtime } from "../_libs/@tanstack/react-router+[...].mjs";
-import { a as PageHero, d as company, i as Kicker, s as Section } from "./router-D86ljitk.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/privacy-zUoEhsnb.js
+import { a as PageHero, c as Section, f as company, i as Kicker } from "./router-BM_i0b_u.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/privacy-DJiqUedB.js
 var import_jsx_runtime = require_jsx_runtime();
 function PrivacyPage() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PageHero, {

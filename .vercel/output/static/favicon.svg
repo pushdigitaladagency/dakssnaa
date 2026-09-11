@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#0F2048"/>
-  <path fill="#F3EFE6" d="M16 3.2 27.6 28.4h-5.1L16 16.2 9.5 28.4H4.4L16 3.2z"/>
-  <path fill="#0F2048" d="M16 9.4 18.55 16h-5.1L16 9.4z"/>
-  <rect x="6" y="29.1" width="20" height="1.15" fill="#ED1C24"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Sree Dakssnaa">
+  <rect width="32" height="32" rx="6" fill="#0B2341"/>
+  <path fill="#F3EFE6" d="M16 5 26.6 18.2H5.4Z"/>
+  <path fill="#F3EFE6" d="M4.2 18.2h23.6l-3.6 3.4H7.8Z"/>
+  <path fill="#C41E3A" d="M16 22.2 20.8 28h-9.6Z"/>
 </svg>
