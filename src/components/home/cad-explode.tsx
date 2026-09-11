@@ -1,10 +1,32 @@
 import { useEffect, useRef, useState } from "react";
 import { Kicker } from "@/components/site/ui";
 
+const FRAME_COUNT = 130;
+const frameUrl = (i: number) => `/cad-frames/frame_${String(i).padStart(3, "0")}.jpg`;
+
+/** Draw `img` into the canvas cropped/centred like CSS `object-fit: cover`. */
+function drawCover(ctx: CanvasRenderingContext2D, img: HTMLImageElement, cw: number, ch: number) {
+  const ir = img.naturalWidth / img.naturalHeight;
+  const cr = cw / ch;
+  let sx = 0;
+  let sy = 0;
+  let sw = img.naturalWidth;
+  let sh = img.naturalHeight;
+  if (ir > cr) {
+    sw = img.naturalHeight * cr;
+    sx = (img.naturalWidth - sw) / 2;
+  } else {
+    sh = img.naturalWidth / cr;
+    sy = (img.naturalHeight - sh) / 2;
+  }
+  ctx.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch);
+}
+
 export function CadExplode() {
   const pinRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const barRef = useRef<HTMLSpanElement>(null);
   const labelRef = useRef<HTMLParagraphElement>(null);
   const [compact, setCompact] = useState(false);
@@ -17,15 +39,97 @@ export function CadExplode() {
     return () => mq.removeEventListener("change", sync);
   }, []);
 
+  // Mobile: a short autoplay loop, played/paused as it enters view. It never
+  // seeks, so it doesn't need the frame sequence below.
   useEffect(() => {
+    if (!compact) return;
+    const pin = pinRef.current;
+    const video = videoRef.current;
+    if (!pin || !video) return;
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      video.pause();
+      video.currentTime = 0;
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      },
+      { threshold: 0.35 },
+    );
+    io.observe(pin);
+    return () => io.disconnect();
+  }, [compact]);
+
+  // Desktop: pin the section and scrub through a still-frame sequence as the
+  // user scrolls. Frames are plain cacheable image fetches — unlike a video
+  // seek, there's no partial-content/Range-request dependency, so a host
+  // that mishandles Range headers (as this one does) can't stall it.
+  useEffect(() => {
+    if (compact) return;
     const pin = pinRef.current;
     const stage = stageRef.current;
-    const video = videoRef.current;
-    if (!pin || !stage || !video) return;
+    const canvas = canvasRef.current;
+    if (!pin || !stage || !canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (compact || reduce) {
+    const images: (HTMLImageElement | undefined)[] = new Array(FRAME_COUNT + 1);
+    const pending = new Map<number, Promise<void>>();
+    let cancelled = false;
+
+    const loadFrame = (i: number): Promise<void> => {
+      if (images[i]) return Promise.resolve();
+      const cached = pending.get(i);
+      if (cached) return cached;
+      const img = new Image();
+      const p = new Promise<void>((resolve) => {
+        img.onload = () => {
+          images[i] = img;
+          resolve();
+        };
+        img.onerror = () => resolve();
+      });
+      img.decoding = "async";
+      img.src = frameUrl(i);
+      pending.set(i, p);
+      return p;
+    };
+
+    const nearestLoaded = (i: number): number | null => {
+      for (let d = 0; d <= FRAME_COUNT; d++) {
+        if (images[i - d]) return i - d;
+        if (images[i + d]) return i + d;
+      }
+      return null;
+    };
+
+    let lastDrawn = -1;
+    const drawFrame = (i: number) => {
+      const target = images[i] ? i : nearestLoaded(i);
+      if (target === null || target === lastDrawn) return;
+      const img = images[target];
+      if (!img) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const rect = stage.getBoundingClientRect();
+      const w = Math.max(1, Math.round(rect.width * dpr));
+      const h = Math.max(1, Math.round(rect.height * dpr));
+      if (canvas.width !== w || canvas.height !== h) {
+        canvas.width = w;
+        canvas.height = h;
+      }
+      drawCover(ctx, img, w, h);
+      lastDrawn = target;
+      if (target !== i && images[i] === undefined) void loadFrame(i);
+    };
+
+    if (reduce) {
       pin.style.height = "";
       stage.style.position = "";
       stage.style.top = "";
@@ -33,45 +137,13 @@ export function CadExplode() {
       stage.style.left = "";
       stage.style.right = "";
       stage.style.height = "";
-      if (reduce) {
-        video.pause();
-        video.currentTime = 0;
-        return;
-      }
-      const io = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) video.play().catch(() => {});
-          else video.pause();
-        },
-        { threshold: 0.35 },
-      );
-      io.observe(pin);
-      return () => io.disconnect();
+      loadFrame(1).then(() => {
+        if (!cancelled) drawFrame(1);
+      });
+      return () => {
+        cancelled = true;
+      };
     }
-
-    video.pause();
-
-    // The production host doesn't honor Range requests — every request,
-    // partial or not, returns the full file from byte 0. So a seek into
-    // unbuffered video aborts the in-progress download and restarts it from
-    // scratch, and the video can never finish loading if scrolling keeps
-    // seeking ahead of the buffer (invisible locally, where the whole file
-    // is already on disk). Let the initial plain GET finish uninterrupted —
-    // don't touch `currentTime` until the whole file is buffered, after
-    // which every seek is served from memory and this can't happen again.
-    let fullyBuffered = false;
-    const checkBuffered = () => {
-      if (fullyBuffered) return;
-      const d = video.duration;
-      if (!d || !Number.isFinite(d)) return;
-      const buf = video.buffered;
-      if (buf.length && buf.end(buf.length - 1) >= d - 0.5) {
-        fullyBuffered = true;
-        apply();
-      }
-    };
-    video.addEventListener("progress", checkBuffered);
-    video.addEventListener("loadedmetadata", checkBuffered);
 
     const apply = () => {
       const vh = window.innerHeight;
@@ -96,11 +168,10 @@ export function CadExplode() {
       stage.style.right = "0";
       stage.style.height = "100svh";
 
-      const d = video.duration;
-      if (fullyBuffered && d && Number.isFinite(d)) {
-        const t = p * Math.max(0, d - 0.04);
-        if (Math.abs(video.currentTime - t) > 1 / 48) video.currentTime = t;
-      }
+      const idx = Math.min(FRAME_COUNT, Math.max(1, Math.round(p * (FRAME_COUNT - 1)) + 1));
+      drawFrame(idx);
+      void loadFrame(idx);
+
       if (barRef.current) barRef.current.style.width = `${(p * 100).toFixed(1)}%`;
       if (labelRef.current) {
         labelRef.current.textContent =
@@ -114,15 +185,31 @@ export function CadExplode() {
       raf = requestAnimationFrame(apply);
     };
 
-    video.addEventListener("loadedmetadata", apply);
+    loadFrame(1).then(() => {
+      if (!cancelled) apply();
+    });
+
+    // Warm the rest of the sequence in the background so later frames are
+    // already cached by the time the user scrolls to them.
+    (async () => {
+      const CONCURRENCY = 4;
+      let next = 2;
+      const worker = async () => {
+        while (!cancelled) {
+          const i = next++;
+          if (i > FRAME_COUNT) return;
+          await loadFrame(i);
+        }
+      };
+      await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+    })();
+
     apply();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
+      cancelled = true;
       cancelAnimationFrame(raf);
-      video.removeEventListener("loadedmetadata", apply);
-      video.removeEventListener("progress", checkBuffered);
-      video.removeEventListener("loadedmetadata", checkBuffered);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
@@ -139,17 +226,31 @@ export function CadExplode() {
         ref={stageRef}
         className="relative h-[58svh] min-h-[320px] overflow-hidden md:absolute md:inset-x-0 md:top-0 md:h-[100svh] md:min-h-0"
       >
-        <video
-          ref={videoRef}
-          className="absolute inset-0 size-full object-cover object-center"
-          src={compact ? "/videos/cad-explode.mp4" : "/videos/cad-scrub.mp4"}
-          poster="/videos/cad-poster.jpg"
-          muted
-          loop={compact}
-          playsInline
-          preload="auto"
-          aria-label="CAD visualisation of a land-system vehicle — hull, turret and mechanical assemblies"
-        />
+        {compact ? (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 size-full object-cover object-center"
+            src="/videos/cad-explode.mp4"
+            poster="/videos/cad-poster.jpg"
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-label="CAD visualisation of a land-system vehicle — hull, turret and mechanical assemblies"
+          />
+        ) : (
+          <canvas
+            ref={canvasRef}
+            className="absolute inset-0 size-full"
+            style={{
+              backgroundImage: "url(/videos/cad-poster.jpg)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+            role="img"
+            aria-label="CAD visualisation of a land-system vehicle — hull, turret and mechanical assemblies"
+          />
+        )}
 
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 px-5 pt-16 md:px-8 md:pt-24">
           <div className="mx-auto flex max-w-[1200px] items-end justify-between gap-6">
