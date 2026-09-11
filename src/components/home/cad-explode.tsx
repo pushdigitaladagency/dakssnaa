@@ -51,26 +51,27 @@ export function CadExplode() {
 
     video.pause();
 
-    // In production the video streams over the network, so a seek to an
-    // unbuffered point takes real time; overwriting `currentTime` again
-    // before it resolves cancels it mid-flight and the frame never
-    // advances (invisible locally, where seeks resolve instantly off disk).
-    // Track in-flight seeks and only ever chase the latest scroll target.
-    let seeking = false;
-    let pendingTime: number | null = null;
-    const onSeeking = () => {
-      seeking = true;
-    };
-    const onSeeked = () => {
-      seeking = false;
-      if (pendingTime !== null) {
-        const t = pendingTime;
-        pendingTime = null;
-        video.currentTime = t;
+    // The production host doesn't honor Range requests — every request,
+    // partial or not, returns the full file from byte 0. So a seek into
+    // unbuffered video aborts the in-progress download and restarts it from
+    // scratch, and the video can never finish loading if scrolling keeps
+    // seeking ahead of the buffer (invisible locally, where the whole file
+    // is already on disk). Let the initial plain GET finish uninterrupted —
+    // don't touch `currentTime` until the whole file is buffered, after
+    // which every seek is served from memory and this can't happen again.
+    let fullyBuffered = false;
+    const checkBuffered = () => {
+      if (fullyBuffered) return;
+      const d = video.duration;
+      if (!d || !Number.isFinite(d)) return;
+      const buf = video.buffered;
+      if (buf.length && buf.end(buf.length - 1) >= d - 0.5) {
+        fullyBuffered = true;
+        apply();
       }
     };
-    video.addEventListener("seeking", onSeeking);
-    video.addEventListener("seeked", onSeeked);
+    video.addEventListener("progress", checkBuffered);
+    video.addEventListener("loadedmetadata", checkBuffered);
 
     const apply = () => {
       const vh = window.innerHeight;
@@ -96,12 +97,9 @@ export function CadExplode() {
       stage.style.height = "100svh";
 
       const d = video.duration;
-      if (d && Number.isFinite(d)) {
+      if (fullyBuffered && d && Number.isFinite(d)) {
         const t = p * Math.max(0, d - 0.04);
-        if (Math.abs(video.currentTime - t) > 1 / 48) {
-          if (seeking) pendingTime = t;
-          else video.currentTime = t;
-        }
+        if (Math.abs(video.currentTime - t) > 1 / 48) video.currentTime = t;
       }
       if (barRef.current) barRef.current.style.width = `${(p * 100).toFixed(1)}%`;
       if (labelRef.current) {
@@ -123,8 +121,8 @@ export function CadExplode() {
     return () => {
       cancelAnimationFrame(raf);
       video.removeEventListener("loadedmetadata", apply);
-      video.removeEventListener("seeking", onSeeking);
-      video.removeEventListener("seeked", onSeeked);
+      video.removeEventListener("progress", checkBuffered);
+      video.removeEventListener("loadedmetadata", checkBuffered);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
