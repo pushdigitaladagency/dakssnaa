@@ -39,7 +39,7 @@
   --radius-xs: 8px;
   --radius-sm: 10px;
   --radius-md: 14px;
-  --radius-lg: 18px;
+  --radius-lg: 0px;
 
   --text-display: clamp(2.6rem, 1.1rem + 5.2vw, 5.4rem);
   --text-title: clamp(1.85rem, 1.15rem + 2.1vw, 3.15rem);

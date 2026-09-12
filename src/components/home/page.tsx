@@ -15,6 +15,7 @@ import { HashLink } from "@/components/site/hash-link";
 import { GeoField, GeoPaper } from "@/components/site/geo-field";
 import { GeoIcon } from "@/components/site/icons";
 import { CadExplode } from "@/components/home/cad-explode";
+import { PlantReel } from "@/components/home/plant-reel";
 import { cn } from "@/lib/utils";
 
 const film = [
@@ -64,8 +65,7 @@ export function HomePage() {
       <Filmstrip />
       <About />
       <Sectors />
-      <BleedPhoto
-        src="/images/hd/laser.jpg"
+      <PlantReel
         alt="High-precision laser processing"
         kicker="Plant"
         caption="High-precision sheet-metal processing on the shop floor."
@@ -199,44 +199,42 @@ function About() {
                 </div>
               ))}
             </div>
-            <div className="mt-8 grid gap-8 border-t border-line pt-8 sm:grid-cols-2 md:mt-12 md:gap-10 md:pt-10">
-              {leadership.map((person) => (
-                <article key={person.name}>
-                  <p className="kicker text-navy">{person.role}</p>
-                  <h3 className="mt-2 font-display text-2xl tracking-tight">{person.name}</h3>
-                  <p className="mt-2 line-clamp-4 text-sm leading-relaxed text-ink-muted md:mt-3 md:line-clamp-none">{person.bio}</p>
-                </article>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 md:mt-14 md:gap-8">
+              {leadership.map((person, i) => (
+                <Reveal key={person.name} once from="up" delay={i * 120}>
+                  <article className="card-lift h-full rounded-2xl bg-navy p-8 text-navy-fg hairline-navy md:p-10">
+                    <p className="kicker text-navy-subtle">{person.role}</p>
+                    <h3 className="mt-3 font-display text-2xl tracking-tight text-navy-fg md:text-3xl">
+                      {person.name}
+                    </h3>
+                    <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-navy-muted md:mt-4 md:text-base md:line-clamp-none">
+                      {person.bio}
+                    </p>
+                  </article>
+                </Reveal>
               ))}
             </div>
           </Reveal>
         </div>
 
-        <div className="mt-10 grid gap-4 lg:mt-16 lg:grid-cols-2 lg:gap-8">
+        <div className="mt-10 grid gap-8 border-t border-line pt-8 lg:mt-16 lg:grid-cols-2 lg:gap-16 lg:pt-10">
           <Reveal once from="left">
-            <article className="h-full rounded-2xl bg-navy p-6 text-navy-fg md:p-10">
-              <div className="icon-well">
-                <GeoIcon name="target" className="size-5" />
-              </div>
-              <Kicker onDark className="mt-6">
-                Mission
-              </Kicker>
-              <blockquote className="mt-4 font-display text-section tracking-tight">
-                “{company.mission}”
-              </blockquote>
-            </article>
+            <div className="icon-well bg-navy/8 text-navy">
+              <GeoIcon name="target" className="size-5" />
+            </div>
+            <Kicker className="mt-6 text-navy">Mission</Kicker>
+            <blockquote className="mt-4 font-display text-section tracking-tight text-ink">
+              “{company.mission}”
+            </blockquote>
           </Reveal>
           <Reveal once from="right" delay={120}>
-            <article className="h-full rounded-2xl bg-navy p-6 text-navy-fg md:p-10">
-              <div className="icon-well">
-                <GeoIcon name="compass" className="size-5" />
-              </div>
-              <Kicker onDark className="mt-6">
-                Vision
-              </Kicker>
-              <blockquote className="mt-4 font-display text-section tracking-tight">
-                “{company.vision}”
-              </blockquote>
-            </article>
+            <div className="icon-well bg-navy/8 text-navy">
+              <GeoIcon name="compass" className="size-5" />
+            </div>
+            <Kicker className="mt-6 text-navy">Vision</Kicker>
+            <blockquote className="mt-4 font-display text-section tracking-tight text-ink">
+              “{company.vision}”
+            </blockquote>
           </Reveal>
         </div>
       </div>
@@ -275,16 +273,6 @@ function Sectors() {
           <Kicker>Sectors</Kicker>
           <h2 className="mt-3 font-display text-title md:mt-4">Where precision is applied</h2>
         </Reveal>
-
-        <div className="relative mx-auto mt-8 hidden max-w-3xl md:mt-14 md:block">
-          <div className="absolute inset-[-12%] rounded-full bg-[radial-gradient(circle,rgba(61,90,128,0.16)_0%,transparent_68%)]" />
-          <img
-            src="/images/hd/aircraft.jpg"
-            alt="Aerospace engineering"
-            className="relative mx-auto w-full max-w-2xl object-contain"
-            loading="lazy"
-          />
-        </div>
 
         <div className="snap-row mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:mt-16 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:pb-0">
           {items.map((item, i) => (

@@ -1,26 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Kicker } from "@/components/site/ui";
+import { drawCover } from "@/lib/canvas";
 
-const FRAME_COUNT = 130;
+const FRAME_COUNT = 50;
 const frameUrl = (i: number) => `/cad-frames/frame_${String(i).padStart(3, "0")}.jpg`;
-
-/** Draw `img` into the canvas cropped/centred like CSS `object-fit: cover`. */
-function drawCover(ctx: CanvasRenderingContext2D, img: HTMLImageElement, cw: number, ch: number) {
-  const ir = img.naturalWidth / img.naturalHeight;
-  const cr = cw / ch;
-  let sx = 0;
-  let sy = 0;
-  let sw = img.naturalWidth;
-  let sh = img.naturalHeight;
-  if (ir > cr) {
-    sw = img.naturalHeight * cr;
-    sx = (img.naturalWidth - sw) / 2;
-  } else {
-    sh = img.naturalWidth / cr;
-    sy = (img.naturalHeight - sh) / 2;
-  }
-  ctx.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch);
-}
 
 export function CadExplode() {
   const pinRef = useRef<HTMLElement>(null);
@@ -175,7 +158,7 @@ export function CadExplode() {
       if (barRef.current) barRef.current.style.width = `${(p * 100).toFixed(1)}%`;
       if (labelRef.current) {
         labelRef.current.textContent =
-          p >= 0.97 ? "Exploded view" : p < 0.06 ? "Assembled" : "Exploding";
+          p >= 0.97 ? "Assembled" : p < 0.06 ? "Exploded view" : "Assembling";
       }
     };
 
@@ -264,14 +247,14 @@ export function CadExplode() {
               ref={labelRef}
               className="hidden font-display text-sm tracking-wide text-white/80 uppercase md:block"
             >
-              Assembled
+              Exploded view
             </p>
           </div>
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden px-5 pb-8 md:block md:px-8">
           <div className="mx-auto flex max-w-[1200px] items-center gap-4">
-            <span className="kicker text-white/55">Assembled</span>
+            <span className="kicker text-white/55">Exploded</span>
             <div className="relative h-[3px] flex-1 rounded-full bg-white/15">
               <span
                 ref={barRef}
@@ -279,7 +262,7 @@ export function CadExplode() {
                 style={{ width: "0%" }}
               />
             </div>
-            <span className="kicker text-white/55">Exploded</span>
+            <span className="kicker text-white/55">Assembled</span>
           </div>
         </div>
       </div>

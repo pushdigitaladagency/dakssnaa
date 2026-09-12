@@ -6,3 +6,4 @@ node_modules/
 .output/
 .vercel/
 .gitignore
+public/videos/*.zip

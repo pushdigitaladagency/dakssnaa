@@ -17,7 +17,7 @@ export function Logo({
           <img
             src="/images/brand/logo.png"
             alt="Sree Dakssnaa Aerospace and Defence India Pvt. Ltd."
-            className="h-auto w-[168px] md:w-[196px]"
+            className="h-[60px] w-auto"
           />
         </span>
       </HashLink>
@@ -34,7 +34,7 @@ export function Logo({
         src="/images/brand/mark.png"
         alt=""
         className={cn(
-          "h-9 w-auto shrink-0 sm:h-10 md:h-11",
+          "h-[60px] w-auto shrink-0",
           onDark && "rounded-lg bg-paper p-1",
         )}
       />
