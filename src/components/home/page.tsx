@@ -88,7 +88,7 @@ export function HomePage() {
 
 function Hero() {
   return (
-    <section id="top" className="relative isolate min-h-[78svh] overflow-hidden bg-[#04366f] text-navy-fg md:min-h-[100svh]">
+    <section id="top" className="relative isolate min-h-[100svh] overflow-hidden bg-[#04366f] text-navy-fg">
       <img
         src="/images/hd/hero.jpg"
         alt="Aerospace aircraft and defence vehicle — engineering visualisation"
@@ -99,7 +99,7 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#042a5c]/92 via-[#042a5c]/55 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#042a5c]/50 via-transparent to-[#042a5c]/25" />
 
-      <div className="relative flex min-h-[78svh] flex-col md:min-h-[100svh]">
+      <div className="relative flex min-h-[100svh] flex-col">
         <div className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-center px-5 pt-20 pb-16 md:px-8 md:pt-24 md:pb-28 nav:pb-16">
           <p className="hero-rise kicker text-white/70" style={{ animationDelay: "80ms" }}>
             Aerospace / Defence / Advanced manufacturing
