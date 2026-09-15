@@ -374,8 +374,8 @@ export function SpecTable({ specs }: { specs: { label: string; value: string }[]
     <dl className="divide-y divide-line">
       {specs.map((s) => (
         <div key={s.label} className="grid grid-cols-1 gap-1 py-3 sm:grid-cols-12 sm:gap-4">
-          <dt className="kicker col-span-5 text-ink-subtle">{s.label}</dt>
-          <dd className="col-span-7 spec-num text-sm text-ink">{s.value}</dd>
+          <dt className="kicker min-w-0 text-ink-subtle sm:col-span-5">{s.label}</dt>
+          <dd className="spec-num min-w-0 break-words text-sm text-ink sm:col-span-7">{s.value}</dd>
         </div>
       ))}
     </dl>

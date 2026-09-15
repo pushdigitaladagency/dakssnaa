@@ -530,7 +530,7 @@ function ProjectOverlay({ project, onClose }: { project: Project; onClose: () =>
       onClick={onClose}
     >
       <div
-        className="max-h-[92svh] w-full max-w-4xl overflow-y-auto rounded-t-3xl bg-paper text-ink md:rounded-3xl"
+        className="max-h-[92svh] w-full max-w-4xl overflow-y-auto overscroll-contain rounded-t-3xl bg-paper pb-[env(safe-area-inset-bottom)] text-ink md:rounded-3xl md:pb-0"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative h-[38vh] min-h-52 bg-navy md:h-[46vh]">
@@ -554,14 +554,16 @@ function ProjectOverlay({ project, onClose }: { project: Project; onClose: () =>
           </button>
         </div>
         {project.gallery.length > 1 ? (
-          <div className="flex gap-2 bg-navy p-3">
+          <div className="flex gap-2 overflow-x-auto bg-navy p-3">
             {project.gallery.map((g, i) => (
               <button
                 key={g.src}
                 type="button"
                 onClick={() => setActive(i)}
+                aria-label={`View image ${i + 1}: ${g.alt}`}
+                aria-pressed={i === active}
                 className={cn(
-                  "h-16 w-24 overflow-hidden rounded-lg",
+                  "h-16 w-24 shrink-0 overflow-hidden rounded-lg",
                   i === active ? "ring-2 ring-navy-fg" : "opacity-70",
                 )}
               >
@@ -660,14 +662,14 @@ function Trust() {
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {partners.map((p, i) => (
             <Reveal once key={p.name} delay={i * 90} from={i % 2 ? "right" : "left"} className="h-full">
-              <article className="card-lift flex h-full items-center gap-6 rounded-2xl bg-card p-6 hairline md:p-8">
+              <article className="card-lift flex h-full flex-col items-center gap-6 rounded-2xl bg-card p-6 hairline sm:flex-row md:flex-col md:p-8 lg:flex-row">
                 <img
                   src={p.image}
                   alt={`${p.name} logo`}
                   className="h-20 w-28 shrink-0 object-contain md:h-24 md:w-36"
                   loading="lazy"
                 />
-                <div>
+                <div className="min-w-0 w-full sm:w-auto">
                   <p className="kicker text-navy">{p.region}</p>
                   <h3 className="mt-2 font-display text-xl tracking-tight md:text-2xl">{p.name}</h3>
                   <p className="mt-2 text-sm text-ink-muted">{p.focus}</p>

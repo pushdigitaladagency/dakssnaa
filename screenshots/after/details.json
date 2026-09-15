@@ -1,0 +1,134 @@
+[
+  {
+    "width": 1280,
+    "dialog": {
+      "width": 1280,
+      "scroll": 1280,
+      "panel": 896
+    }
+  },
+  {
+    "width": 320,
+    "dialog": {
+      "width": 320,
+      "scroll": 320,
+      "panel": 320
+    }
+  },
+  {
+    "width": 320,
+    "menu": {
+      "height": 568,
+      "scroll": 568,
+      "links": [
+        {
+          "text": "Sree DakssnaaAerospace & Defence",
+          "y": 2,
+          "height": 60
+        },
+        {
+          "text": "About",
+          "y": 88,
+          "height": 44
+        },
+        {
+          "text": "Capabilities",
+          "y": 136,
+          "height": 44
+        },
+        {
+          "text": "Infrastructure",
+          "y": 184,
+          "height": 44
+        },
+        {
+          "text": "Projects",
+          "y": 232,
+          "height": 44
+        },
+        {
+          "text": "Partners",
+          "y": 280,
+          "height": 44
+        },
+        {
+          "text": "Contact",
+          "y": 328,
+          "height": 44
+        },
+        {
+          "text": "Enquire with us ",
+          "y": 408,
+          "height": 40
+        },
+        {
+          "text": "+91 94443 13234",
+          "y": 476,
+          "height": 44
+        }
+      ]
+    }
+  },
+  {
+    "width": 768,
+    "dialog": {
+      "width": 768,
+      "scroll": 768,
+      "panel": 704
+    }
+  },
+  {
+    "width": 768,
+    "menu": {
+      "height": 1024,
+      "scroll": 1024,
+      "links": [
+        {
+          "text": "Sree DakssnaaAerospace & Defence",
+          "y": 2,
+          "height": 60
+        },
+        {
+          "text": "About",
+          "y": 316,
+          "height": 44
+        },
+        {
+          "text": "Capabilities",
+          "y": 364,
+          "height": 44
+        },
+        {
+          "text": "Infrastructure",
+          "y": 412,
+          "height": 44
+        },
+        {
+          "text": "Projects",
+          "y": 460,
+          "height": 44
+        },
+        {
+          "text": "Partners",
+          "y": 508,
+          "height": 44
+        },
+        {
+          "text": "Contact",
+          "y": 556,
+          "height": 44
+        },
+        {
+          "text": "Enquire with us ",
+          "y": 636,
+          "height": 40
+        },
+        {
+          "text": "+91 94443 13234",
+          "y": 704,
+          "height": 44
+        }
+      ]
+    }
+  }
+]

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Kicker } from "@/components/site/ui";
 import { drawCover } from "@/lib/canvas";
 
@@ -8,51 +8,15 @@ const frameUrl = (i: number) => `/cad-frames/frame_${String(i).padStart(3, "0")}
 export function CadExplode() {
   const pinRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const barRef = useRef<HTMLSpanElement>(null);
   const labelRef = useRef<HTMLParagraphElement>(null);
-  const [compact, setCompact] = useState(false);
 
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 767px)");
-    const sync = () => setCompact(mq.matches);
-    sync();
-    mq.addEventListener("change", sync);
-    return () => mq.removeEventListener("change", sync);
-  }, []);
-
-  // Mobile: a short autoplay loop, played/paused as it enters view. It never
-  // seeks, so it doesn't need the frame sequence below.
-  useEffect(() => {
-    if (!compact) return;
-    const pin = pinRef.current;
-    const video = videoRef.current;
-    if (!pin || !video) return;
-
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      video.pause();
-      video.currentTime = 0;
-      return;
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) video.play().catch(() => {});
-        else video.pause();
-      },
-      { threshold: 0.35 },
-    );
-    io.observe(pin);
-    return () => io.disconnect();
-  }, [compact]);
-
-  // Desktop: pin the section and scrub through a still-frame sequence as the
+  // All screen sizes: pin the section and scrub through a still-frame sequence as the
   // user scrolls. Frames are plain cacheable image fetches — unlike a video
   // seek, there's no partial-content/Range-request dependency, so a host
   // that mishandles Range headers (as this one does) can't stall it.
   useEffect(() => {
-    if (compact) return;
     const pin = pinRef.current;
     const stage = stageRef.current;
     const canvas = canvasRef.current;
@@ -96,13 +60,14 @@ export function CadExplode() {
     let lastDrawn = -1;
     const drawFrame = (i: number) => {
       const target = images[i] ? i : nearestLoaded(i);
-      if (target === null || target === lastDrawn) return;
+      if (target === null) return;
       const img = images[target];
       if (!img) return;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const rect = stage.getBoundingClientRect();
       const w = Math.max(1, Math.round(rect.width * dpr));
       const h = Math.max(1, Math.round(rect.height * dpr));
+      if (target === lastDrawn && canvas.width === w && canvas.height === h) return;
       if (canvas.width !== w || canvas.height !== h) {
         canvas.width = w;
         canvas.height = h;
@@ -113,7 +78,7 @@ export function CadExplode() {
     };
 
     if (reduce) {
-      pin.style.height = "";
+      pin.style.height = "100svh";
       stage.style.position = "";
       stage.style.top = "";
       stage.style.bottom = "";
@@ -125,11 +90,12 @@ export function CadExplode() {
       });
       return () => {
         cancelled = true;
+        pin.style.height = "";
       };
     }
 
     const apply = () => {
-      const vh = window.innerHeight;
+      const vh = stage.getBoundingClientRect().height;
       const range = Math.max(1, pin.offsetHeight - vh);
       const top = pin.getBoundingClientRect().top;
       const p = Math.min(1, Math.max(0, -top / range));
@@ -195,33 +161,24 @@ export function CadExplode() {
       cancelAnimationFrame(raf);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+      // Release imperative positioning when the component unmounts.
+      for (const property of ["position", "top", "bottom", "left", "right", "height"]) {
+        stage.style.removeProperty(property);
+      }
     };
-  }, [compact]);
+  }, []);
 
   return (
     <section
       ref={pinRef}
       id="cad"
-      className="relative bg-[#1b222b] md:h-[360vh]"
+      className="relative h-[360svh] bg-[#1b222b] md:h-[360vh]"
       aria-label="Defence vehicle CAD explode view"
     >
       <div
         ref={stageRef}
-        className="relative h-[58svh] min-h-[320px] overflow-hidden md:absolute md:inset-x-0 md:top-0 md:h-[100svh] md:min-h-0"
+        className="absolute inset-x-0 top-0 h-[100svh] overflow-hidden"
       >
-        {compact ? (
-          <video
-            ref={videoRef}
-            className="absolute inset-0 size-full object-cover object-center"
-            src="/videos/cad-explode.mp4"
-            poster="/videos/cad-poster.jpg"
-            muted
-            loop
-            playsInline
-            preload="auto"
-            aria-label="CAD visualisation of a land-system vehicle — hull, turret and mechanical assemblies"
-          />
-        ) : (
           <canvas
             ref={canvasRef}
             className="absolute inset-0 size-full"
@@ -233,7 +190,6 @@ export function CadExplode() {
             role="img"
             aria-label="CAD visualisation of a land-system vehicle — hull, turret and mechanical assemblies"
           />
-        )}
 
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 px-5 pt-16 md:px-8 md:pt-24">
           <div className="mx-auto flex max-w-[1200px] items-end justify-between gap-6">
@@ -252,7 +208,7 @@ export function CadExplode() {
           </div>
         </div>
 
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden px-5 pb-8 md:block md:px-8">
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 px-5 pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:px-8 nav:pb-8">
           <div className="mx-auto flex max-w-[1200px] items-center gap-4">
             <span className="kicker text-white/55">Exploded</span>
             <div className="relative h-[3px] flex-1 rounded-full bg-white/15">

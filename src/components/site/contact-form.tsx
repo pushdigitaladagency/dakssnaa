@@ -1,4 +1,4 @@
-import { useMemo, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { company, requirementTypes } from "@/data/site";
 import { Btn, BtnLink, Kicker } from "./ui";
 
@@ -11,6 +11,16 @@ export function ContactForm({ initialRequirement = "Aerospace" }: { initialRequi
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
+  const confirmationRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!sent || !window.matchMedia("(width < 70rem)").matches) return;
+    // Replacing the tall mobile form can otherwise leave the viewport in the footer.
+    confirmationRef.current?.scrollIntoView({
+      block: "start",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+    });
+  }, [sent]);
 
   const mailto = useMemo(() => {
     const subject = encodeURIComponent(`Engineering enquiry — ${requirement}`);
@@ -49,7 +59,7 @@ export function ContactForm({ initialRequirement = "Aerospace" }: { initialRequi
 
   if (sent) {
     return (
-      <div className="rounded-2xl bg-navy p-8 text-navy-fg md:p-10">
+      <div ref={confirmationRef} role="status" className="scroll-mt-20 rounded-2xl bg-navy p-8 text-navy-fg md:p-10">
         <Kicker onDark>Enquiry recorded</Kicker>
         <h3 className="mt-3 font-display text-section uppercase">Thank you, {name}.</h3>
         <p className="mt-4 text-navy-muted">
@@ -176,7 +186,7 @@ function Field({
   className?: string;
 }) {
   return (
-    <label className={className} htmlFor={htmlFor}>
+    <label className={`min-w-0 ${className ?? ""}`} htmlFor={htmlFor}>
       <span className="kicker text-ink-subtle">{label}</span>
       <span className="mt-2 block">{children}</span>
     </label>

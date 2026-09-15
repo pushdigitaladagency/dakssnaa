@@ -1,0 +1,81 @@
+[
+  {
+    "width": 320,
+    "height": 568,
+    "ok": true,
+    "projects": 10,
+    "menu": true,
+    "form": true,
+    "footer": true,
+    "consoleErrors": []
+  },
+  {
+    "width": 375,
+    "height": 667,
+    "ok": true,
+    "projects": 10,
+    "menu": true,
+    "form": true,
+    "footer": true,
+    "consoleErrors": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "ok": true,
+    "projects": 10,
+    "menu": true,
+    "form": true,
+    "footer": true,
+    "consoleErrors": []
+  },
+  {
+    "width": 414,
+    "height": 896,
+    "ok": true,
+    "projects": 10,
+    "menu": true,
+    "form": true,
+    "footer": true,
+    "consoleErrors": []
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "ok": true,
+    "projects": 10,
+    "menu": true,
+    "form": true,
+    "footer": true,
+    "consoleErrors": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "ok": true,
+    "projects": 10,
+    "menu": true,
+    "form": true,
+    "footer": true,
+    "consoleErrors": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "ok": true,
+    "projects": 10,
+    "menu": false,
+    "form": true,
+    "footer": true,
+    "consoleErrors": []
+  },
+  {
+    "redirects": 18,
+    "ok": true
+  },
+  {
+    "rotation": true,
+    "landscapeMenu": true,
+    "ok": true
+  }
+]

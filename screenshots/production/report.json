@@ -1,0 +1,1040 @@
+[
+  {
+    "width": 320,
+    "height": 568,
+    "route": "/",
+    "layout": {
+      "width": 320,
+      "scroll": 320,
+      "cadHeight": 329.4375,
+      "sections": [
+        {
+          "id": "top",
+          "top": 0,
+          "height": 539.65625
+        },
+        {
+          "id": "cad",
+          "top": 539.65625,
+          "height": 329.4375
+        },
+        {
+          "id": "Workshop and programme photography",
+          "top": 869.09375,
+          "height": 144
+        },
+        {
+          "id": "about",
+          "top": 1013.09375,
+          "height": 2717.625
+        },
+        {
+          "id": "SECTION",
+          "top": 3730.71875,
+          "height": 634.765625
+        },
+        {
+          "id": "High-precision laser processing",
+          "top": 4365.484375,
+          "height": 1249.59375
+        },
+        {
+          "id": "capabilities",
+          "top": 5615.078125,
+          "height": 1027.6875
+        },
+        {
+          "id": "infrastructure",
+          "top": 6642.765625,
+          "height": 1622.9375
+        },
+        {
+          "id": "FIGURE",
+          "top": 8265.703125,
+          "height": 204.46875
+        },
+        {
+          "id": "projects",
+          "top": 8470.171875,
+          "height": 1499.71875
+        },
+        {
+          "id": "partners",
+          "top": 9969.890625,
+          "height": 1011.6875
+        },
+        {
+          "id": "contact",
+          "top": 10981.578125,
+          "height": 1868.453125
+        },
+        {
+          "id": "FOOTER",
+          "top": 12850.03125,
+          "height": 1413.421875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [
+      {
+        "tag": "IMG",
+        "cls": "absolute inset-0 size-full object-cover",
+        "text": "",
+        "left": -8,
+        "right": 328,
+        "client": 320,
+        "scroll": 320
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "route": "/privacy",
+    "layout": {
+      "width": 320,
+      "scroll": 320,
+      "sections": [
+        {
+          "id": "SECTION",
+          "top": 419.28125,
+          "height": 960.6875
+        },
+        {
+          "id": "FOOTER",
+          "top": 1379.96875,
+          "height": 1413.421875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "route": "/terms",
+    "layout": {
+      "width": 320,
+      "scroll": 320,
+      "sections": [
+        {
+          "id": "SECTION",
+          "top": 375.203125,
+          "height": 1074.875
+        },
+        {
+          "id": "FOOTER",
+          "top": 1450.078125,
+          "height": 1413.421875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 667,
+    "route": "/",
+    "layout": {
+      "width": 375,
+      "scroll": 375,
+      "cadHeight": 386.859375,
+      "sections": [
+        {
+          "id": "top",
+          "top": 0,
+          "height": 520.25
+        },
+        {
+          "id": "cad",
+          "top": 520.25,
+          "height": 386.859375
+        },
+        {
+          "id": "Workshop and programme photography",
+          "top": 907.109375,
+          "height": 144
+        },
+        {
+          "id": "about",
+          "top": 1051.109375,
+          "height": 2456.109375
+        },
+        {
+          "id": "SECTION",
+          "top": 3507.21875,
+          "height": 638.828125
+        },
+        {
+          "id": "High-precision laser processing",
+          "top": 4146.046875,
+          "height": 1467.390625
+        },
+        {
+          "id": "capabilities",
+          "top": 5613.4375,
+          "height": 1066.8125
+        },
+        {
+          "id": "infrastructure",
+          "top": 6680.25,
+          "height": 1595.390625
+        },
+        {
+          "id": "FIGURE",
+          "top": 8275.640625,
+          "height": 240.109375
+        },
+        {
+          "id": "projects",
+          "top": 8515.75,
+          "height": 1443.609375
+        },
+        {
+          "id": "partners",
+          "top": 9959.359375,
+          "height": 1011.6875
+        },
+        {
+          "id": "contact",
+          "top": 10971.046875,
+          "height": 1762.828125
+        },
+        {
+          "id": "FOOTER",
+          "top": 12733.875,
+          "height": 1413.421875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [
+      {
+        "tag": "IMG",
+        "cls": "absolute inset-0 size-full object-cover",
+        "text": "",
+        "left": -9,
+        "right": 384,
+        "client": 375,
+        "scroll": 375
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 667,
+    "route": "/privacy",
+    "layout": {
+      "width": 375,
+      "scroll": 375,
+      "sections": [
+        {
+          "id": "SECTION",
+          "top": 347.171875,
+          "height": 846.5
+        },
+        {
+          "id": "FOOTER",
+          "top": 1193.671875,
+          "height": 1413.421875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 667,
+    "route": "/terms",
+    "layout": {
+      "width": 375,
+      "scroll": 375,
+      "sections": [
+        {
+          "id": "SECTION",
+          "top": 375.484375,
+          "height": 932.140625
+        },
+        {
+          "id": "FOOTER",
+          "top": 1307.625,
+          "height": 1413.421875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "route": "/",
+    "layout": {
+      "width": 390,
+      "scroll": 390,
+      "cadHeight": 489.515625,
+      "sections": [
+        {
+          "id": "top",
+          "top": 0,
+          "height": 658.3125
+        },
+        {
+          "id": "cad",
+          "top": 658.3125,
+          "height": 489.515625
+        },
+        {
+          "id": "Workshop and programme photography",
+          "top": 1147.828125,
+          "height": 144
+        },
+        {
+          "id": "about",
+          "top": 1291.828125,
+          "height": 2448.484375
+        },
+        {
+          "id": "SECTION",
+          "top": 3740.3125,
+          "height": 646.15625
+        },
+        {
+          "id": "High-precision laser processing",
+          "top": 4386.46875,
+          "height": 1856.796875
+        },
+        {
+          "id": "capabilities",
+          "top": 6243.265625,
+          "height": 1083.6875
+        },
+        {
+          "id": "infrastructure",
+          "top": 7326.953125,
+          "height": 1568.609375
+        },
+        {
+          "id": "FIGURE",
+          "top": 8895.5625,
+          "height": 303.828125
+        },
+        {
+          "id": "projects",
+          "top": 9199.390625,
+          "height": 1425.265625
+        },
+        {
+          "id": "partners",
+          "top": 10624.65625,
+          "height": 988.9375
+        },
+        {
+          "id": "contact",
+          "top": 11613.59375,
+          "height": 1737.640625
+        },
+        {
+          "id": "FOOTER",
+          "top": 13351.234375,
+          "height": 1413.421875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [
+      {
+        "tag": "IMG",
+        "cls": "absolute inset-0 size-full object-cover",
+        "text": "",
+        "left": -10,
+        "right": 400,
+        "client": 390,
+        "scroll": 390
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "route": "/privacy",
+    "layout": {
+      "width": 390,
+      "scroll": 390,
+      "sections": [
+        {
+          "id": "SECTION",
+          "top": 347.390625,
+          "height": 789.40625
+        },
+        {
+          "id": "FOOTER",
+          "top": 1136.796875,
+          "height": 1413.421875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "route": "/terms",
+    "layout": {
+      "width": 390,
+      "scroll": 390,
+      "sections": [
+        {
+          "id": "SECTION",
+          "top": 347.390625,
+          "height": 932.140625
+        },
+        {
+          "id": "FOOTER",
+          "top": 1279.53125,
+          "height": 1413.421875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [],
+    "errors": []
+  },
+  {
+    "width": 414,
+    "height": 896,
+    "route": "/",
+    "layout": {
+      "width": 414,
+      "scroll": 414,
+      "cadHeight": 519.671875,
+      "sections": [
+        {
+          "id": "top",
+          "top": 0,
+          "height": 698.875
+        },
+        {
+          "id": "cad",
+          "top": 698.875,
+          "height": 519.671875
+        },
+        {
+          "id": "Workshop and programme photography",
+          "top": 1218.546875,
+          "height": 144
+        },
+        {
+          "id": "about",
+          "top": 1362.546875,
+          "height": 2401.96875
+        },
+        {
+          "id": "SECTION",
+          "top": 3764.515625,
+          "height": 601.0625
+        },
+        {
+          "id": "High-precision laser processing",
+          "top": 4365.578125,
+          "height": 1971.1875
+        },
+        {
+          "id": "capabilities",
+          "top": 6336.765625,
+          "height": 1110.6875
+        },
+        {
+          "id": "infrastructure",
+          "top": 7447.453125,
+          "height": 1591.984375
+        },
+        {
+          "id": "FIGURE",
+          "top": 9039.4375,
+          "height": 322.546875
+        },
+        {
+          "id": "projects",
+          "top": 9361.984375,
+          "height": 1462.765625
+        },
+        {
+          "id": "partners",
+          "top": 10824.75,
+          "height": 988.9375
+        },
+        {
+          "id": "contact",
+          "top": 11813.6875,
+          "height": 1675.984375
+        },
+        {
+          "id": "FOOTER",
+          "top": 13489.671875,
+          "height": 1390.671875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [
+      {
+        "tag": "IMG",
+        "cls": "absolute inset-0 size-full object-cover",
+        "text": "",
+        "left": -10,
+        "right": 424,
+        "client": 414,
+        "scroll": 414
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 414,
+    "height": 896,
+    "route": "/privacy",
+    "layout": {
+      "width": 414,
+      "scroll": 414,
+      "sections": [
+        {
+          "id": "SECTION",
+          "top": 347.703125,
+          "height": 789.40625
+        },
+        {
+          "id": "FOOTER",
+          "top": 1137.109375,
+          "height": 1390.671875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [],
+    "errors": []
+  },
+  {
+    "width": 414,
+    "height": 896,
+    "route": "/terms",
+    "layout": {
+      "width": 414,
+      "scroll": 414,
+      "sections": [
+        {
+          "id": "SECTION",
+          "top": 347.703125,
+          "height": 875.046875
+        },
+        {
+          "id": "FOOTER",
+          "top": 1222.75,
+          "height": 1390.671875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "route": "/",
+    "layout": {
+      "width": 430,
+      "scroll": 430,
+      "cadHeight": 540.546875,
+      "sections": [
+        {
+          "id": "top",
+          "top": 0,
+          "height": 726.953125
+        },
+        {
+          "id": "cad",
+          "top": 726.953125,
+          "height": 540.546875
+        },
+        {
+          "id": "Workshop and programme photography",
+          "top": 1267.5,
+          "height": 144
+        },
+        {
+          "id": "about",
+          "top": 1411.5,
+          "height": 2357.65625
+        },
+        {
+          "id": "SECTION",
+          "top": 3769.15625,
+          "height": 608.859375
+        },
+        {
+          "id": "High-precision laser processing",
+          "top": 4378.015625,
+          "height": 2050.390625
+        },
+        {
+          "id": "capabilities",
+          "top": 6428.40625,
+          "height": 1128.6875
+        },
+        {
+          "id": "infrastructure",
+          "top": 7557.09375,
+          "height": 1562.078125
+        },
+        {
+          "id": "FIGURE",
+          "top": 9119.171875,
+          "height": 335.515625
+        },
+        {
+          "id": "projects",
+          "top": 9454.6875,
+          "height": 1466.875
+        },
+        {
+          "id": "partners",
+          "top": 10921.5625,
+          "height": 988.9375
+        },
+        {
+          "id": "contact",
+          "top": 11910.5,
+          "height": 1675.984375
+        },
+        {
+          "id": "FOOTER",
+          "top": 13586.484375,
+          "height": 1390.671875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [
+      {
+        "tag": "IMG",
+        "cls": "absolute inset-0 size-full object-cover",
+        "text": "",
+        "left": -11,
+        "right": 441,
+        "client": 430,
+        "scroll": 430
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "route": "/privacy",
+    "layout": {
+      "width": 430,
+      "scroll": 430,
+      "sections": [
+        {
+          "id": "SECTION",
+          "top": 347.921875,
+          "height": 760.859375
+        },
+        {
+          "id": "FOOTER",
+          "top": 1108.78125,
+          "height": 1390.671875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "route": "/terms",
+    "layout": {
+      "width": 430,
+      "scroll": 430,
+      "sections": [
+        {
+          "id": "SECTION",
+          "top": 347.921875,
+          "height": 846.5
+        },
+        {
+          "id": "FOOTER",
+          "top": 1194.421875,
+          "height": 1390.671875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "route": "/",
+    "layout": {
+      "width": 768,
+      "scroll": 768,
+      "cadHeight": 3686.390625,
+      "sections": [
+        {
+          "id": "top",
+          "top": 0,
+          "height": 1024
+        },
+        {
+          "id": "cad",
+          "top": 1024,
+          "height": 3686.390625
+        },
+        {
+          "id": "Workshop and programme photography",
+          "top": 4710.390625,
+          "height": 280
+        },
+        {
+          "id": "about",
+          "top": 4990.390625,
+          "height": 2187.578125
+        },
+        {
+          "id": "SECTION",
+          "top": 7177.96875,
+          "height": 698.578125
+        },
+        {
+          "id": "High-precision laser processing",
+          "top": 7876.546875,
+          "height": 2252.796875
+        },
+        {
+          "id": "capabilities",
+          "top": 10129.34375,
+          "height": 2488.234375
+        },
+        {
+          "id": "infrastructure",
+          "top": 12617.578125,
+          "height": 1230.765625
+        },
+        {
+          "id": "FIGURE",
+          "top": 13848.34375,
+          "height": 737.265625
+        },
+        {
+          "id": "projects",
+          "top": 14585.609375,
+          "height": 2841.765625
+        },
+        {
+          "id": "partners",
+          "top": 17427.375,
+          "height": 1037.109375
+        },
+        {
+          "id": "contact",
+          "top": 18464.484375,
+          "height": 1564.515625
+        },
+        {
+          "id": "FOOTER",
+          "top": 20029,
+          "height": 872.9375
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [
+      {
+        "tag": "IMG",
+        "cls": "absolute inset-0 size-full object-cover",
+        "text": "",
+        "left": -19,
+        "right": 787,
+        "client": 768,
+        "scroll": 768
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "route": "/privacy",
+    "layout": {
+      "width": 768,
+      "scroll": 768,
+      "sections": [
+        {
+          "id": "SECTION",
+          "top": 417.375,
+          "height": 596.484375
+        },
+        {
+          "id": "FOOTER",
+          "top": 1013.859375,
+          "height": 872.9375
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "route": "/terms",
+    "layout": {
+      "width": 768,
+      "scroll": 768,
+      "sections": [
+        {
+          "id": "SECTION",
+          "top": 417.375,
+          "height": 653.578125
+        },
+        {
+          "id": "FOOTER",
+          "top": 1070.953125,
+          "height": 872.9375
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [],
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "route": "/",
+    "layout": {
+      "width": 1280,
+      "scroll": 1280,
+      "cadHeight": 2880,
+      "sections": [
+        {
+          "id": "top",
+          "top": 0,
+          "height": 854.34375
+        },
+        {
+          "id": "cad",
+          "top": 854.34375,
+          "height": 2880
+        },
+        {
+          "id": "Workshop and programme photography",
+          "top": 3734.34375,
+          "height": 280
+        },
+        {
+          "id": "about",
+          "top": 4014.34375,
+          "height": 1936.140625
+        },
+        {
+          "id": "SECTION",
+          "top": 5950.484375,
+          "height": 811.109375
+        },
+        {
+          "id": "High-precision laser processing",
+          "top": 6761.59375,
+          "height": 1760
+        },
+        {
+          "id": "capabilities",
+          "top": 8521.59375,
+          "height": 2854.34375
+        },
+        {
+          "id": "infrastructure",
+          "top": 11375.9375,
+          "height": 1381.359375
+        },
+        {
+          "id": "FIGURE",
+          "top": 12757.296875,
+          "height": 576
+        },
+        {
+          "id": "projects",
+          "top": 13333.296875,
+          "height": 2125.75
+        },
+        {
+          "id": "partners",
+          "top": 15459.046875,
+          "height": 977
+        },
+        {
+          "id": "contact",
+          "top": 16436.046875,
+          "height": 1134.40625
+        },
+        {
+          "id": "FOOTER",
+          "top": 17570.453125,
+          "height": 414.46875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [
+      {
+        "tag": "DIV",
+        "cls": "relative z-[1] mx-auto max-w-[1160px] px-5 md:px-8",
+        "text": "01 — ABOUT US\n\nEngineering for aerospace & defence\n\nSree Dakssnaa Aerospace and Defence In",
+        "left": 60,
+        "right": 1220,
+        "client": 1160,
+        "scroll": 1192
+      },
+      {
+        "tag": "DIV",
+        "cls": "mt-8 grid items-start gap-8 lg:mt-16 lg:grid-cols-12 lg:gap-16",
+        "text": "Sree Dakssnaa Aerospace and Defence India Pvt Ltd, established in 2024, focuses on deliver",
+        "left": 92,
+        "right": 1188,
+        "client": 1096,
+        "scroll": 1160
+      },
+      {
+        "tag": "DIV",
+        "cls": "mt-10 grid gap-8 border-t border-line pt-8 lg:mt-16 lg:grid-cols-2 lg:gap-16 lg:pt-10",
+        "text": "MISSION\n\n“Our company's mission is to provide innovative and reliable defense and aerospac",
+        "left": 92,
+        "right": 1188,
+        "client": 1096,
+        "scroll": 1160
+      },
+      {
+        "tag": "DIV",
+        "cls": "mx-auto mt-10 grid max-w-[1160px] items-center gap-8 px-5 md:mt-16 md:grid-cols-12 md:gap-10 md:px-8",
+        "text": "EXPANSION\n\nNew facility of 44,000 sq. ft exclusively for FRP (Unit-7)\n\nCAPABILITY EXPANSIO",
+        "left": 60,
+        "right": 1220,
+        "client": 1160,
+        "scroll": 1167
+      },
+      {
+        "tag": "IMG",
+        "cls": "absolute inset-0 size-full object-cover",
+        "text": "",
+        "left": -32,
+        "right": 1312,
+        "client": 1280,
+        "scroll": 1280
+      },
+      {
+        "tag": "DIV",
+        "cls": "mx-auto mt-10 max-w-[1160px] px-5 md:mt-16 md:px-8",
+        "text": "GLOBAL TECHNOLOGY PARTNERSHIPS\n\nDENMARK\n\nRUBTEC, Denmark\n\nAluminium wheels\n\nCANADA\n\nVCI Co",
+        "left": 60,
+        "right": 1220,
+        "client": 1160,
+        "scroll": 1170
+      },
+      {
+        "tag": "DIV",
+        "cls": "mt-8 grid gap-4 md:grid-cols-2",
+        "text": "DENMARK\n\nRUBTEC, Denmark\n\nAluminium wheels\n\nCANADA\n\nVCI Composites, Canada\n\nArmour-grade c",
+        "left": 92,
+        "right": 1188,
+        "client": 1096,
+        "scroll": 1138
+      },
+      {
+        "tag": "DIV",
+        "cls": "relative z-[1] mx-auto max-w-[1160px] px-5 md:px-8",
+        "text": "06 — CONTACT\n\nLet’s engineer what’s next.\n\nConnect with Sree Dakssnaa Aerospace & Defence ",
+        "left": 60,
+        "right": 1220,
+        "client": 1160,
+        "scroll": 1163
+      },
+      {
+        "tag": "DIV",
+        "cls": "mt-8 grid items-start gap-4 lg:mt-12 lg:grid-cols-12 lg:gap-10",
+        "text": "CALL US\n\n+91 94443 13234\n\n+91 44 2716 2191\n\nEMAIL\n\ndakssnaaaerospace@gmail.com\n\nWORKS\n\nNo.",
+        "left": 92,
+        "right": 1188,
+        "client": 1096,
+        "scroll": 1112
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "route": "/privacy",
+    "layout": {
+      "width": 1280,
+      "scroll": 1280,
+      "sections": [
+        {
+          "id": "SECTION",
+          "top": 450.859375,
+          "height": 628.484375
+        },
+        {
+          "id": "FOOTER",
+          "top": 1079.34375,
+          "height": 414.46875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [],
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "route": "/terms",
+    "layout": {
+      "width": 1280,
+      "scroll": 1280,
+      "sections": [
+        {
+          "id": "SECTION",
+          "top": 450.859375,
+          "height": 685.578125
+        },
+        {
+          "id": "FOOTER",
+          "top": 1136.4375,
+          "height": 414.46875
+        }
+      ],
+      "brokenImages": []
+    },
+    "problems": [],
+    "errors": []
+  }
+]

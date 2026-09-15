@@ -61,7 +61,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
-    overflow-x: clip;
   }
 
   body {
@@ -170,7 +169,7 @@
     transform: none;
   }
 
-  @media (max-width: 767px) {
+  @media (width < 70rem) {
     .reveal,
     .reveal-left,
     .reveal-right,
@@ -300,6 +299,7 @@
   .field {
     display: block;
     width: 100%;
+    min-width: 0;
     height: 2.75rem;
     padding: 0 0.85rem;
     background: var(--color-paper);
@@ -354,6 +354,41 @@
 
   .geo-spin {
     animation: geo-rot 70s linear infinite;
+  }
+
+  @media (width < 70rem) {
+    .field {
+      /* Prevent automatic zoom when focusing a form on iOS. */
+      font-size: 1rem;
+    }
+
+    select.field {
+      padding-right: 2rem;
+    }
+
+    .cta-label {
+      max-width: 100%;
+      min-height: 2.75rem;
+      height: auto;
+      padding-block: 0.75rem;
+      text-align: center;
+    }
+
+    .cta-label > svg {
+      flex-shrink: 0;
+    }
+
+    footer a {
+      overflow-wrap: anywhere;
+    }
+
+    footer li a,
+    footer address ~ a,
+    footer .legal-links a {
+      display: inline-flex;
+      min-height: 2.75rem;
+      align-items: center;
+    }
   }
 }
 

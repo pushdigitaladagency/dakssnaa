@@ -1,0 +1,29 @@
+[
+  {
+    "width": 320,
+    "height": 568,
+    "video": true,
+    "swipe": true,
+    "plantScrub": true,
+    "canvasResize": true,
+    "escapeClosesMenu": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "video": true,
+    "swipe": true,
+    "plantScrub": true,
+    "canvasResize": true,
+    "escapeClosesMenu": true
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "video": false,
+    "swipe": false,
+    "plantScrub": true,
+    "canvasResize": true,
+    "escapeClosesMenu": true
+  }
+]
